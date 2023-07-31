@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#To run enter "source ./scripts/setup"
+
+# If you can't execute script do:
+# chmod +x ./scripts/setup 
+echo "Beginning Setup"
+
+
+
+echo "Creating Python Virtual Environment"
+python3 -m venv env
+
+#ensure enough time for env files to be created
+
+#will not activate if not run with "source"
+echo "Activating Python Virtual Environment"
+source ./env/bin/activate
+
+#TODO add install dependencies
+#TODO Figure out the dependencies
+
+pip install -r requirements.txt
+pip install -e cities_server
+
+
+# for the frontend you need to run
+# npm install bootstrap --legacy-peer-deps
+
+# pip install resa
+# needed to fix socket issue
+# pip install websockets==10.0 

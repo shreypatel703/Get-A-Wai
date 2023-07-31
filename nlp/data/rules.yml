@@ -1,0 +1,39 @@
+version: "3.1"
+
+rules:
+- rule: Collect Vacation Data
+  steps:
+  - intent: start_vacation_planning
+  - action: vacation_data_form
+  - active_loop: vacation_data_form
+
+- rule: End Vacation Data Collection
+  condition:
+  - active_loop: vacation_data_form
+  steps:
+  - action: vacation_data_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_next_steps
+
+- rule: City Interest
+  condition:
+  - active_loop: null
+  steps:
+  - intent: city_interest
+  - action: set_city_interest_slot
+- rule: When specific activity intent
+  condition:
+  - active_loop: null
+  steps:
+  - intent: specific_activity_intent
+  - action: action_get_specific_activities
+
+
+- rule: When Restuarants Intent
+  condition:
+  - active_loop: null
+  steps:
+  - intent: restaurants_interest
+  - action: action_get_restaurants_info

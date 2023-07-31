@@ -1,0 +1,150 @@
+version: '3.1'
+intents:
+- affirm
+- city_interest
+- deny
+- goodbye
+- greet
+- help
+- inform_vacation_data
+- specific_activity_intent
+- start_vacation_planning
+- restaurants_interest
+entities:
+- travelMethod
+- budget
+- activities
+- climate
+- tripDuration
+- GPE
+- MONEY
+slots:
+  liked_activity_1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: activities
+      intent: inform_vacation_data
+  liked_activity_2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: activities
+      intent: inform_vacation_data
+  liked_activity_3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: activities
+      intent: inform_vacation_data
+  preferred_climate:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: climate
+      intent: inform_vacation_data
+  preferred_travel_method:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: travelMethod
+      intent: inform_vacation_data
+  preferred_trip_length:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: tripDuration
+      intent: inform_vacation_data
+  preferred_budget:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: MONEY
+      intent: inform_vacation_data
+  user_city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: GPE
+      intent: inform_vacation_data
+  user_state:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: GPE
+      intent: inform_vacation_data
+  interested_city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      action: set_city_interest_slot
+      intent: city_interest
+forms:
+  vacation_data_form:
+    required_slots:
+    - liked_activity_1
+    - liked_activity_2
+    - liked_activity_3
+    - preferred_climate
+    - preferred_travel_method
+    - preferred_trip_length
+    - preferred_budget
+    - user_city
+    - user_state
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_respond_capabilities:
+  - text: Get-a-wAI helps individuals discover new and exciting vaction destinations. Let us know when you're ready to design your tailored-made trip!
+  utter_ask_liked_activity_1:
+  - text: What kind of activities are you interested in doing on your vaction? Please only include one activity at a time.
+  utter_ask_liked_activity_2:
+  - text: What is another activity you like?
+  utter_ask_liked_activity_3:
+  - text: Whats one more thing you're interested in doing on your trip?
+  utter_ask_preferred_climate:
+  - text: What type of weather would you like?
+  utter_ask_preferred_travel_method:
+  - text: Would you prefer to drive or fly to your destination?
+  utter_ask_preferred_trip_length:
+  - text: How many nights are you planning on staying?
+  utter_ask_preferred_budget:
+  - text: How much are you looking to spend on this trip?
+  utter_ask_user_city:
+  - text: What city will you be traveling from?
+  utter_ask_user_state:
+  - text: What state will you be traveling from?
+  utter_all_data_collected:
+  - text: I found that you want to do {liked_activity_1}, {liked_activity_2}, {liked_activity_3} in {preferred_climate} conditions.
+  utter_default:
+  - text: Sorry, I didn't quite understand. Could you rephrase that?
+  - text: I didn't quite catch that. Is it possible for you to reword it?
+  - text: I'm not sure I understand what your saying. Could you try rephrasing?
+  utter_city_interest_response:
+  - text: Getting specific activities!
+  - text: Getting potential activities for the city you selected!
+  utter_next_steps:
+  - text: Please wait while we find your perfect destinations. Let us know if any of them sound interesting!
+actions:
+- set_city_interest_slot
+- utter_next_steps
+- utter_all_data_collected
+- action_get_specific_activities
+- utter_respond_capabilities
+- utter_restaurants_or_specific_activities
+- utter_greet
+- validate_vacation_data_form
+- action_get_restaurants_info
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

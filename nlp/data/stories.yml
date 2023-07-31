@@ -1,0 +1,211 @@
+version: "3.1"
+
+stories:
+
+- story: get specific activites
+  steps:
+  - intent: city_interest
+    entities:
+    - GPE: "Miami"
+  - action: set_city_interest_slot
+  - slot_was_set:
+    - interested_city: Miami
+  - intent: specific_activity_intent
+    entities:
+    - activities: "beach"
+  - action: action_get_specific_activities
+
+- story: get specific activities without city set
+  steps:
+  - intent: city_interest
+  - action: set_city_interest_slot
+  - intent: city_interest
+    entities:
+    - GPE: Orlando
+  - action: set_city_interest_slot
+  - slot_was_set:
+    - interested_city: Orlando
+  - intent: restaurants_interest
+  - action: action_get_restaurants_info
+
+- story: restaurants_2
+  steps:
+  - intent: city_interest
+  - action: set_city_interest_slot
+  - intent: city_interest
+    entities:
+    - GPE: Key West
+  - action: set_city_interest_slot
+  - slot_was_set:
+    - interested_city: Key West
+  - intent: restaurants_interest
+  - action: action_get_restaurants_info
+  - intent: restaurants_interest
+    entities:
+    - cruisine: thai
+  - action: action_get_restaurants_info
+
+- story: restaurants_1
+  steps:
+  - intent: city_interest
+  - action: set_city_interest_slot
+  - intent: city_interest
+    entities:
+    - GPE: Phoenix
+  - action: set_city_interest_slot
+  - slot_was_set:
+    - interested_city: Phoenix
+  - intent: restaurants_interest
+    entities:
+    - cruisine: pizza
+  - action: action_get_restaurants_info
+
+
+
+- story: resturant_info
+  steps:
+    - intent: city_interest
+      entities:
+      - GPE: "Boston"
+    - action: set_city_interest_slot
+    - slot_was_set:
+      - interested_city: Boston
+    - intent: restaurants_interest
+    - action: action_get_restaurants_info
+
+# need to add help intent
+- story: beginning
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: help
+    - action: utter_respond_capabilities
+    
+
+    
+    
+
+- story: interactive_story_1
+  steps:
+  - intent: start_vacation_planning
+  - action: vacation_data_form
+  - active_loop: vacation_data_form
+  - slot_was_set:
+    - requested_slot: liked_activity_1
+  - intent: inform_vacation_data
+    entities:
+    - activities: hiking
+  - slot_was_set:
+    - liked_activity_1: hiking
+  - action: vacation_data_form
+  - slot_was_set:
+    - liked_activity_1: hiking
+  - slot_was_set:
+    - requested_slot: liked_activity_2
+  - intent: inform_vacation_data
+    entities:
+    - activities: hunting
+  - slot_was_set:
+    - liked_activity_2: hunting
+  - action: vacation_data_form
+  - slot_was_set:
+    - liked_activity_2: hunting
+  - slot_was_set:
+    - requested_slot: liked_activity_3
+  - intent: inform_vacation_data
+    entities:
+    - activities: sightseeing
+  - slot_was_set:
+    - liked_activity_3: sightseeing
+  - action: vacation_data_form
+  - slot_was_set:
+    - liked_activity_3: sightseeing
+  - slot_was_set:
+    - requested_slot: preferred_climate
+  - intent: inform_vacation_data
+    entities:
+    - climate: cold
+  - slot_was_set:
+    - preferred_climate: cold
+  - action: vacation_data_form
+  - slot_was_set:
+    - preferred_climate: cold
+  - slot_was_set:
+    - requested_slot: preferred_travel_method
+  - intent: inform_vacation_data
+    entities:
+    - travelMethod: probably
+    - travelMethod: car
+  - slot_was_set:
+    - preferred_travel_method: car
+  - intent: inform_vacation_data
+    entities:
+    - travelMethod: car
+  - action: set_city_interest_slot
+  - action: action_extract_slots
+  - slot_was_set:
+    - preferred_travel_method: car
+  - intent: inform_vacation_data
+    entities:
+    - travelMethod: car
+  - slot_was_set:
+    - preferred_travel_method: car
+  - action: vacation_data_form
+  - slot_was_set:
+    - preferred_travel_method: car
+  - slot_was_set:
+    - requested_slot: preferred_trip_length
+  - intent: inform_vacation_data
+    entities:
+    - tripDuration: 7 nights
+    - DATE: 7 nights
+  - slot_was_set:
+    - preferred_trip_length: 7 nights
+  - action: vacation_data_form
+  - slot_was_set:
+    - preferred_trip_length: 7 nights
+  - slot_was_set:
+    - requested_slot: preferred_budget
+  - intent: inform_vacation_data
+    entities:
+    - budget: 1200 dollars
+    - MONEY: 1200 dollars
+  - slot_was_set:
+    - preferred_budget: 1200 dollars
+  - action: vacation_data_form
+  - slot_was_set:
+    - preferred_budget: 1200 dollars
+  - slot_was_set:
+    - requested_slot: user_city
+  - intent: inform_vacation_data
+    entities:
+    - GPE: Novi
+  - slot_was_set:
+    - user_city: Novi
+  - action: vacation_data_form
+  - slot_was_set:
+    - user_city: Novi
+  - slot_was_set:
+    - requested_slot: user_state
+  - intent: inform_vacation_data
+    entities:
+    - GPE: New York
+  - slot_was_set:
+    - user_state: New York
+  - action: vacation_data_form
+  - slot_was_set:
+    - user_state: New York
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_next_steps
+  - intent: city_interest
+    entities:
+    - GPE: Los Vegas
+  - action: set_city_interest_slot
+  - slot_was_set:
+    - interested_city: Los Vegas
+  - intent: specific_activity_intent
+    entities:
+    - activities: gambling
+  - action: action_get_specific_activities

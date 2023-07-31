@@ -1,0 +1,3 @@
+#!/bin/bash
+cd frontend/get_a_wai_react
+npm start

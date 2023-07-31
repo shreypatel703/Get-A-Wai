@@ -1,0 +1,45 @@
+#!/bin/bash
+# citiesdb
+
+usage() {
+  echo "Usage: $0 (create|destroy|reset)"
+}
+if [ $# -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+
+case $1 in
+  "create")
+    
+    if [ -f "var/cities.sqlite3" ]; then
+        echo "DB exists."
+        exit 1
+    else
+        mkdir -p var/
+        sqlite3 var/cities.sqlite3 < cities_server/cities/sql/createTables.sql
+    fi
+    ;;
+  "destroy")
+    rm -f var/cities.sqlite3
+    ;;
+  "reset")
+    rm -f var/cities.sqlite3
+    mkdir -p var/
+    sqlite3 var/cities.sqlite3 < cities_server/cities/sql/createTables.sql
+    sqlite3 var/cities.sqlite3 < cities_server/cities/sql/loadTestData.sql
+    ;;
+  "load")
+    sqlite3 var/cities.sqlite3 < cities_server/cities/sql/loadTestData.sql
+    ;;
+  "dump")
+    sqlite3 -batch -line var/cities.sqlite3 'SELECT * FROM cities'
+    sqlite3 -batch -line var/cities.sqlite3 'SELECT * FROM Activities'
+    sqlite3 -batch -line var/cities.sqlite3 'SELECT * FROM City_Activities'
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac

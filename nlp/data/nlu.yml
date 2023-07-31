@@ -1,0 +1,325 @@
+version: "3.1"
+nlu:
+- intent: start_vacation_planning
+  examples: |
+    - I would like to plan a trip.
+    - Yes, lets plan a trip.
+    - what do you need to know.
+    - lets do it
+    - I want to plan a vacation
+    - lets plan a vacation
+    - yes, lets plan one
+    - I'm ready to begin
+    - I would like to plan a vacation
+    - lets go back to planning the vacation
+    - back to the vacation
+    - back to the plan
+- intent: inform_vacation_data
+  examples: |
+    - I love [hiking](activities) mountains.
+    - I enjoy tanning on the [beach](activities) hiking.
+    - I want to see atrifacts in [museums](activities)
+    - Lets party at a [club](activities)
+    - Can we visit the [park](activities)
+    - I like to go [shopping](activities)
+    - I like [amusement parks](activities)
+    - My favorite thing to do is see the animals at the [zoo](activities)
+    - I like [gambling](activities) at [casino](activities)
+    - I like watching movies at the [theater](activities)
+    - Can I visit places with nice [aquariums](activities)
+    - I love to [hike](activities) in the forest to go [birdwatching](activities)
+    - I want to go [boating](activities)
+    - I like places that have good [camping](activities)
+    - I want to canoeing(activities)
+    - I like deep sea [fishing](activities)
+    - I love [horseback riding](activities)
+    - I want to learn how to [mountain bike](activities)
+    - Can I visit somewhere that [scuba diving](activities) is available.
+    - I like places that are mountainous so I can go [skiing](activities)
+    - Somewhere cold so I can go [snowboarding](activities)
+    - [Snorkeling](activities) is one of my favorite things to do.
+    - [Paddleboarding](activities), [surfing](activities), and [swimming](activities)
+    - wildlife viewing(activities)
+    - wine tasting(activities)
+    - I love [festivals](activities) and [events](activities)
+    - Visiting [historical landmarks](activities) is one of my passsions.
+    - eating local cuisine(activities)
+    - [going to the theater or opera](activities) is my favorite
+    - I want to go somewhere that has [spas](activities) and [hot springs](activities)
+    - [ziplining](activities) is my favorite activity
+    - I want to try [skydiving](activities) with my friends
+    - I like [whitewater kayaking](activities)
+    - I love [sandboarding](activities)
+    - I want to go on a trip that has [safari](activities) and has [backpacking](activities) trips
+    - I want to get better at [skiing](activities)
+    - Can I try [snowmobiling](activities) in the mountains
+    - I want to try [dog sledding](activities) in the snow
+    - I want try [ice fishing](activities) in the winter
+    - I want to learn [wakeboarding](activities) in the ocean
+    - I want to learn [water skiing](activities)
+    - I like [dolphin watching](activities)
+    - I want to go [hunting](activities)
+    - I love [mountain climbing](activities)
+    - I enjoy [kitesurfing](activities)
+    - Can I go [base jumping](activities)
+    - Can we go [cave exploring](activities)
+    - I want to go [geo caching](activities)
+    - I love [parasailing](activities)
+    - I enjoy [trampolining](activities)
+    - I want to go [wakesurfing](activities)
+    - I like to go [white water rafting](activities)
+    - I like [wind surfing](activities)
+    - I want to be in the [sun](activities)
+    - i enjoy [clubbing](activities)
+    - I love [gambling](activities)
+    - I want to [gamble](activities)
+    - I enjoy going to [clubs](activities)
+    - I want to visit [shops](activities)
+    - I want to go [sightseeing](activities)
+    - I like [warm](climate) weather
+    - I enjoy [cold](climate) weather
+    - I want something with [moderate](climate) temperatures
+    - I want somewhere with [medium](climate) temperatures
+    - I like [cold](climate) weather
+    - [cold](climate)
+    - [sunny](climate)
+    - [hot](climate)
+    - [burning hot](climate)
+    - Lets go somewhere [tropical](climate)
+    - [tropical](climate)
+    - Can you find places that are [hot](climate) and [humid](climate)
+    - [humid](climate)
+    - [frigid](climate)
+    - I enjoy [Warm](climate) temperature
+    - I love [tropical](climate)
+    - [temporate](climate)
+    - [dry](climate)
+    - [arid](climate)
+    - [freezing](climate)
+    - I am located in New York City
+    - I live in Ann Arbor
+    - I currently reside in west bloomfield
+    - My address is 314 E William St., Ann Arbor, MI, 48104
+    - 45489 beepbop road is my address
+    - I am from Michigan
+    - I come from Arizona
+    - seattle is where I am from
+    - My home address is 420 Michigan ave. Ann arbor
+    - I'm currently located in Commerce Township, Michigan
+    - I live at 8552 Walnut Lake Drive, Novi Michigan
+    - I am going to [drive](travelMethod)
+    - I want to take a [flight](travelMethod)
+    - [driving](travelMethod)
+    - [flying](travelMethod)
+    - I want to [drive](travelMethod) there
+    - lets take a [plane](travelMethod)
+    - Is there any [trains](travelMethod) to that place
+    - [drive](travelMethod)
+    - Ill take a [car](travelMethod) there
+    - I would love to [fly](travelMethod) there
+    - I want to travel for [1 week](tripDuration)
+    - I want a [4 day](tripDuration) vacation
+    - I would love a [3 week](tripDuration) vaction
+    - [1 day](tripDuration) vacation is what I am looking for
+    - My family needs a [6 day](tripDuration) getaway
+    - [3 days](tripDuration)
+    - [1 month](tripDuration)
+    - I need to be on a [9 day](tripDuration) trip
+    - I want to relax for [8 days](tripDuration)
+    - [5 nights](tripDuration)
+    - I am looking to spend around a [week](tripDuration) there
+    - I want to stay about [5 days](tripDuration)
+    - I think we are going to stay around [2 weeks](tripDuration), and maybe even later.
+    - I want a cheap vacation
+    - I have an unlimited budget
+    - I only have [500 dollars](budget)
+    - I want to drop [4 grand](budget) on this trip
+    - I want to spend [8 thousand](budget) on this trip
+    - [8 k](budget)
+    - I can spend up to [7 thousand](budget) dollars 
+    - Max I can spend is [300 dollars]dollars
+    - I need to spend at least [400 bucks]dollars on this getaway
+    - I want to spend around [2000 dollars] dollars
+    - [1000 bucks](budget)
+    - I only have [400 dollars](budget)
+    - can I do an vacation for [200 dollars](budget)
+    - I can only pay about [800](budget)
+    - I think we budgeted about [7000](budget) for this trip.
+    - [800](budget)
+    - I like [hiking](activities)
+    - I also enjoy [hunting](activities)
+    - I want to learn how to [snowboard](activities)
+    - [fly](travelMethod)
+    - around [8 nights](tripDuration)
+    - I can spend [2000 dollars](budget)
+    - I live in Novi
+    - I am coming from Nevada
+    - I enjoy [hiking](activities) up mountains
+    - I love [hunting](activities)
+    - I really enjoy [sightseeing](activities)
+    - I like [cold](climate) weather
+    - We will probably be taking the [car](travelMethod)
+    - I think we are taking the [car](travelMethod)
+    - We are going to spend [7 nights](tripDuration)
+    - We can spend [1200 dollars](budget)
+    - I am traveling from Novi
+    - Pretty long, I think were going to stay [3 months](tripDuration)
+    - I live in New York
+    - I think it would need to be [cold](climate)
+- intent: city_interest
+  examples: |
+    - I'm interested in Dallas
+    - Yes, Phoenix looks interesting
+    - Can I take a closer took at Myrtle Beach
+    - I'm going to go with Tampa
+    - I would love to visit Miami
+    - I think Las Vegas looks the best
+    - I want to visit New York City
+    - I pick Los Angeles
+    - Can I go to Houston
+    - Yes, Chicago looks nice
+    - Nashville will work nicely
+    - Seattle
+    - Maui
+    - Las Vegas
+    - New York City
+    - Orlando
+    - gatlinburg seems pretty interesting
+    - What can I do in Boston
+    - Los Angeles
+    - Chicago
+    - Nashville
+    - San Diego
+    - Miami Beach
+    - New Orleans
+    - Houston
+    - Can I see more info about Miami
+    - Anaheim
+    - San Francisco
+    - Atlanta
+    - Boston
+    - Atlantic City
+    - San Antonio
+    - Fort Lauderdale
+    - Dallas
+    - Grand Canyon National Park
+    - Austin
+    - Myrtle Beach
+    - Phoenix
+    - Denver
+    - Yellowstone National Park
+    - Gatlinburg
+    - Tampa
+    - Lake Tahoe
+    - Key West
+    - I think Los Vegas sounds awesome
+    - I think Los Vegas is interesting
+- intent: specific_activity_intent
+  examples: |
+    - yes, I am interested in the specific activities for Denver.
+    - Yes, I would like to know more about [hiking](activities).
+    - Can I know more about the activities that are available?
+    - what activities are there?
+    - Lets go with the activities
+    - What kind of stuff is there to do in Miami
+    - what are my activity options
+    - What [beaches](activities) are available.
+    - I want to know about which activities are offered
+    - I am interested in [Gambling]{"entity": "activities", "value": "gambling"}
+    - I am pretty interested in [gambling](activities).
+    - What [parks](activities) are available
+    - Where can I go [hiking](activities)
+    - What are my [beach](activities) options
+    - Where can I go the [beach](activities)
+    - what [hiking](activities) trails are there
+- intent: restaurants_interest
+  examples: |
+    - I'm interested in what restaurants are avaliable
+    - I'm in the mood for [chinease](cuisine) food.
+    - What kind of food can i get there
+    - What are my eating options
+    - Sure, show me what my eating options are
+    - What can I get to eat
+    - Where can I eat
+    - Where can I got to eat
+    - [italian](cuisine) food
+    - I really like [korean](cuisine) food
+    - I could go for some [indian](cuisine) food
+    - I really like [thai](cuisine)
+    - [mediterranean](cuisine)
+    - I could go for [pizza](cuisine)
+    - What [seafood](cuisine) places are there?
+    - What [fast-food](cuisine) is there in the Atlanta?
+    - I want to know what [bars](cuisine) there are
+    - I want to have some new york [pizza](cruisine)
+    - where is the best [vietnamese](cruisine) food in atlanta
+    - I want to have the best [indian](cruisine) food
+    - I love [italian](cruisine) food
+    - I want to go to a fancy [korean](cruisine) restaurant
+    - I would love to have some [american](cruisine) food right now
+    - [japanese](cruisine) food would slap right now
+    - I want to try [cuban](cruisine) food
+    - I don't know what to eat
+    - Can I eat at a [turkish](cruisine) restaurant
+    - Where is the best restaurant here
+    - I want to have some [seafood](cruisine)
+- intent: help
+  examples: |
+    - what can you do
+    - what's your purpose
+    - what do you do
+    - how do I chat with you
+    - whats the point of your existance
+    - how can you help me
+    - help
+    - help please
+    - functionality
+    - commands
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hello there
+    - hi
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - great
+- synonym: gambling
+  examples: |
+    - Gambling

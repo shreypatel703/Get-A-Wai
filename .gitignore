@@ -1,0 +1,16 @@
+#ignore python virtual environemnt
+env/
+
+#ignore package generation
+*.egg-info*
+
+*.pyc
+
+*/node_modules/*
+var/
+
+
+*.rasa*
+
+*models*
+myenv/

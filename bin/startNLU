@@ -1,0 +1,3 @@
+#!/bin/bash
+cd nlp/
+rasa run --enable-api --cors "*"
